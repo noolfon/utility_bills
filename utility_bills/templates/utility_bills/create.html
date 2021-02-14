@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Добавить запись</title>
+{% endblock %}
+
+{% block content %}
+<h1>Добавить запись</h1>
+{% include 'form.html' with button='Сохранить' %}
+
+{% endblock %}
+<!--  {% include 'form.html' with button='Сохранить' %}
+
+{% for hidden in form.hidden_fields %}
+{{ hidden }}
+{% endfor %}
+{# Include the visible fields #}
+{% for field in form.visible_fields %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+    </div>
+{% endfor %}
+
+
+-->
