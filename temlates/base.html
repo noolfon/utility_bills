@@ -1,9 +1,5 @@
 {% url 'utility_bills:home' as utility_bills_home_url %}
 {% url 'utility_bills:create' as utility_bills_create_url %}
-{% url 'trains:home' as trains_home_url %}
-{% url 'trains:create' as trains_create_url %}
-{% url 'routes:find' as routes_find_url %}
-{% url 'routes:list' as routes_list_url %}
 {% url 'accounts:login' as accounts_login_url %}
 
 <!doctype html>
@@ -19,7 +15,7 @@
     {% block title %}{% endblock %}
   </head>
   <body>
-        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
+        <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #a3cb6e;">
               <div class="container">
                 <a class="navbar-brand" href="{% url 'home'%}">Главная</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,35 +27,8 @@
                       <a class="nav-link {% if request.path == utility_bills_home_url %}active{% endif %}" aria-current="page" href="{% url 'utility_bills:home' %}">Статистика учета</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link {% if request.path == trains_home_url %}active{% endif %}" href="#">Добавить запись </a>
+                      <a class="nav-link {% if request.path == utility_bills_create_url %}active{% endif %}" href="{% url 'utility_bills:create' %}">Добавить запись </a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link
-                        {% if request.path == routes_list_url %}active{% endif %}
-                        " href="#">link</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link
-                        {% if request.path == routes_find_url %}active{% endif %}
-                        " href="#">Link</a>
-                    </li>
-                    {% if  user.is_authenticated %}
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle
-                            {% if request.path == trains_create_url or request.path == utility_bills_create_url %}active{% endif %}"
-                             href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Добавить
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">link</a></li>
-                            <li><a class="dropdown-item" href="#">link</a></li>
-                          </ul>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                          <a class="nav-link disabled" href="#">Добавить</a>
-                        </li>
-                    {% endif %}
                       {% if  user.is_authenticated %}
                         <li class="nav-item">
                           <a class="nav-link" href="{% url 'accounts:logout' %}">Выйти</a>

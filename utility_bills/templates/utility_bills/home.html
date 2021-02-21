@@ -16,12 +16,12 @@
                     <tr class="align-middle">
                       <th scope="col">Дата</th>
                       <th scope="col">За Месяц</th>
-                      <th scope="col">Коммунальные платежи</th>
-                      <th scope="col">Электричество</th>
+                      <th scope="col">ЖКХ</th>
+                      <th scope="col">Эл.Энергия</th>
                       <th scope="col">Интернет</th>
                       <th scope="col">Антенна</th>
                       <th scope="col">Домофон</th>
-                      <th scope="col">Домофон(Почтовая)</th>
+                      <th scope="col">Домофон(П)</th>
                       <th scope="col">Действие</th>
                     </tr>
                   </thead>
@@ -44,6 +44,16 @@
                     </tr>
                 </tbody>
             {% endfor %}
+                <tfoot class="table-warning">
+                        <td> За все время: </td>
+                        <td>{{ sum_pay.month_pay }}  </td>
+                        <td>{{ sum_pay.communal_pay }} руб.</td>
+                        <td>{{ sum_pay.electric_pay }} руб.</td>
+                        <td>{{ sum_pay.internet_pay }} руб.</td>
+                        <td>{{ sum_pay.antenna_pay }} руб.</td>
+                        <td>{{ sum_pay.doorphone_pay }} руб.</td>
+                        <td>{{ sum_pay.doorphone_pay2}} руб.</td>
+                </tfoot>
             </table>
         </div>
         {% if  pay_list|length > 12 %}

@@ -9,6 +9,7 @@ from django.views.generic import DetailView, CreateView, UpdateView, DeleteView,
 from utility_bills.forms import PaymentsForm
 from utility_bills.models import Payments
 from django.contrib.auth.models import User
+from utility_bills.utils import sum_pays
 
 __all__ = (
     'PaymentsDetailView', 'PaymentsCreateView', 'PaymentsUpdateView',
@@ -20,6 +21,12 @@ class PaymentsListView(ListView):
     paginate_by = 12
     model = Payments
     template_name = 'utility_bills/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        qs = Payments.objects.filter(current_user_id=self.request.user.id)
+        context['sum_pay'] = sum_pays(qs)
+        return context
 
     def get_queryset(self):
         return Payments.objects.filter(current_user_id=self.request.user.id)
@@ -63,7 +70,7 @@ class PaymentsUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     model = Payments
     form_class = PaymentsForm
     template_name = 'utility_bills/update.html'
-    success_url = reverse_lazy('')
+    success_url = reverse_lazy('utility_bills:home')
     success_message = "Запись успешно изменена!"
 
 

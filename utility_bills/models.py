@@ -12,9 +12,9 @@ class Payments(models.Model):
     communal_pay = models.FloatField(verbose_name='Коммунальный платеж')
     electric_pay = models.FloatField(verbose_name='Электричество')
     internet_pay = models.FloatField(verbose_name='Интернет')
-    antenna_pay = models.FloatField(verbose_name='Антенна', blank=True, null=True)
-    doorphone_pay = models.FloatField(verbose_name='Домофон', blank=True, null=True)
-    doorphone_pay2 = models.FloatField(verbose_name='Домофон (Почтовая)', blank=True, null=True)
+    antenna_pay = models.FloatField(verbose_name='Антенна', blank=True, default=0)
+    doorphone_pay = models.FloatField(verbose_name='Домофон', blank=True, default=0)
+    doorphone_pay2 = models.FloatField(verbose_name='Домофон (Почтовая)', blank=True, default=0)
 
     # def __str__(self):
     #     return f'Коммунальный платеж - {self.communal_pay},' \
