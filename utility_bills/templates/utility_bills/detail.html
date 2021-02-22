@@ -9,32 +9,33 @@
     <div class="row">
         <div class="col-md">
                 <div class="table-responsive-xxl">
-            <table class="table  table-bordered border-dark text-center align-middle ">
-                <thead>
-                    <tr class="align-middle">
-                      <th scope="col">Дата</th>
-                      <th scope="col">За Месяц</th>
-                      <th scope="col">Коммунальные платежи</th>
-                      <th scope="col">Электричество</th>
-                      <th scope="col">Интернет</th>
-                      <th scope="col">Антенна</th>
-                      <th scope="col">Домофон</th>
-                      <th scope="col">Домофон(Почтовая)</th>
-                    </tr>
-                  </thead>
-                <tbody>
-                    <tr>
-                        <td> {{ object.date_create }} </td>
-                        <td>{{ object.month_pay }}  </td>
-                        <td>{{ object.communal_pay }} руб.</td>
-                        <td>{{ object.electric_pay }} руб.</td>
-                        <td>{{ object.internet_pay }} руб.</td>
-                        <td>{{ object.antenna_pay }} руб.</td>
-                        <td>{{ object.doorphone_pay }} руб.</td>
-                        <td>{{ object.doorphone_pay2}} руб.</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <table class="table  table-bordered border-dark text-center align-middle ">
+                        <thead>
+                            <tr class="align-middle">
+                              <th scope="col">Дата</th>
+                              <th scope="col">За Месяц</th>
+                              <th scope="col">Коммунальные платежи</th>
+                              <th scope="col">Электричество</th>
+                              <th scope="col">Интернет</th>
+                              <th scope="col">Антенна</th>
+                              <th scope="col">Домофон</th>
+                              <th scope="col">Домофон(Почтовая)</th>
+                            </tr>
+                          </thead>
+                        <tbody>
+                            <tr>
+                                <td> {{ object.date_create }} </td>
+                                <td>{{ object.month_pay }}  </td>
+                                <td>{{ object.communal_pay }} руб.</td>
+                                <td>{{ object.electric_pay }} руб.</td>
+                                <td>{{ object.internet_pay }} руб.</td>
+                                <td>{{ object.antenna_pay }} руб.</td>
+                                <td>{{ object.doorphone_pay }} руб.</td>
+                                <td>{{ object.doorphone_pay2}} руб.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -55,6 +56,3 @@
         </div>
     </div>
 {% endblock %}
-
-
-
